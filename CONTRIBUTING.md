@@ -10,13 +10,15 @@ If you're unsure about something, ask questions within the issue thread. Collabo
 
 ### How to install it
 1. Do `npm install` within the root project.
-2. Create your own OAuth, go to https://console.cloud.google.com/apis/, then click on Credential and create a new one.
-   Put the type Web Application and in both the URI's put http://localhost:3000. After finishing this process, they give you
-   your clientID, copy it.
-3. Create a .env file withing the root project, 
-   put your OAuth clientID within the variable `REACT_APP_GOOGLE_CLIENT_ID`. This is done to protect this private 
-   information from the public repository. Put the variable HOST = localhost, as well. 
-4. To run it, do `npm start` within root/src.
+2. Create your own OAuth by going to [Google Cloud Console](https://console.cloud.google.com/apis/), then click on **Credentials** and create a new one:
+   - Set **Application type** to Web Application.
+   - In both URI fields, enter `http://localhost:3000` (if you are running locally on port 3000).
+   - After finishing, you’ll get your `Client ID`. Copy it.
+3. Create a `.env` file in the root directory of the project with the following variables:
+   `REACT_APP_GOOGLE_CLIENT_ID=<your-google-oauth-client-id>`, `HOST=localhost`, and `MONGODB_URI=<your-mongodb-connection-string>`. Replace `<your-google-oauth-client-id>` with the `Client ID` you copied earlier. For the `MONGODB_URI`, use the connection string from [MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database) (it's free 🚀). If you're running MongoDB locally, use something like `MONGODB_URI=mongodb://localhost:27017/visitorCountDB`. Moreover, you need to specify where your localhost is running (e.g., `LOCAL_HOST_URI='http://localhost:3001'`)
+   **This .env ensures private information is stored securely.**
+4. To run the application, execute `npm start` within the `algorithm-finder/src` directory. To run the MongoDB server, do `node visitors-utility.js` within algorithm-finder/src.
+
 
 
 ## Submitting Pull Requests (PRs)
