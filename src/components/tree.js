@@ -310,5 +310,4 @@ algorithmFinder.addNode(
   false
 );
 
-
 export default algorithmFinder;
