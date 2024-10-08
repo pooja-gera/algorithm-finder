@@ -1,48 +1,185 @@
+
+.main-content {
+  text-align: center;
+}
+
 .algorithm-finder-wrapper {
   display: flex;
   flex-direction: column;
 
-  .question-value {
-    font-size: 80px;
+  .accordion {
+    cursor: pointer;
+    background-color: white;
+    // border: 1px solid black;
+    border-radius: 4px;
+    padding: 8px 24px;
+    margin: 20px 35px;
+    margin-top: 40px;  
+    
+    .question-value {
+      margin: 0;
+      transition: text-decoration 0.2s ease;
+      font-size: 80px; 
+
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+
+      &.open {
+        max-height: 100px; 
+      }
+
+      .question-summary {
+        padding: 8px 0 0 0;
+        color: #333;
+      }
+    }
+  }
+  .action-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Add space between buttons */
+    margin-top: 20px; /* Add space above buttons */
+    flex-wrap: wrap; /* Ensure responsiveness */
+  }
+  
+  .btn-success, .btn-error {
+    background-color: white;
+    color: #4CAF50; /* Green color for text */
+    padding: 20px 50px; /* Increased padding for larger buttons */
+    font-size: 32px; /* Increased font size for better visibility */
+    font-weight: bold;
+    border: 2px solid transparent;
+    border-radius: 4px; /* Slightly rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for depth */
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .btn-success {
+    background-color: #4CAF50; /* Green background for Yes button */
+    color: white; /* White text */
+  }
+  
+  .btn-error {
+    background-color: #F44336; /* Red background for No button */
+    color: white; /* White text */
+  }
+  
+  .btn-success:hover, .btn-error:hover {
+    background-color: white; /* White background on hover */
+    color: inherit; /* Maintain text color */
+    border: 2px solid; /* Add solid border */
+  }
+  
+  .btn-success:hover {
+    border-color: #4CAF50; /* Green border on hover for Yes */
+    color: #4CAF50; /* Green text on hover */
+  }
+  
+  .btn-error:hover {
+    border-color: #F44336; /* Red border on hover for No */
+    color: #F44336; /* Red text on hover */
+  }
+  
+  .btn-success:active, .btn-error:active {
+    transform: scale(0.95); /* Slightly shrink button on click */
+  }
+  
+  .btn-success:disabled, .btn-error:disabled {
+    background-color: #ddd; /* Light gray background when disabled */
+    color: #999; /* Gray text when disabled */
+    border-color: #ccc; /* Gray border when disabled */
+    cursor: not-allowed; /* Not-allowed cursor */
+    box-shadow: none; /* Remove shadow when disabled */
+  }
+  
+
+  // .action-btns {
+  //   margin-top: 20px;  
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   flex-wrap: wrap;   
+
+  //   .btn-success, .btn-error {
+  //     background-color: white;
+  //     border: 4px solid;
+  //     padding: 24px 80px;
+  //     border-radius: 8px;
+  //     font-size: 80px;
+  //     margin-right: 20px;
+  //     cursor: pointer;
+
+  //     &:disabled {
+  //       color: gray;
+  //       border-color: gray;
+  //       cursor: not-allowed;
+  //     }
+  //   }
+
+  //   .btn-success {
+  //     border-color: green;
+  //     color: green;
+  //   }
+
+  //   .btn-error {
+  //     border-color: red;
+  //     color: red;
+  //   }
+  // }
+
+
+  .btn-back, .btn-restart {
+    background-color: black;       
+    color: white;                  
+    border: none;                    
+    border-radius: 5px;              
+    padding: 12px 36px;              
+    font-size: 18px;                 
+    width: 100%;                     
+    max-width: 300px;               
+    height: 60px;                    
+    cursor: pointer;                 
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    display: block;
+    margin: auto auto;
+    margin-top: 40px;
   }
 
-  .action-btns {
-    margin-bottom: 40px;
-    margin-top: -40px;
+  .btn-back:hover, .btn-restart:hover {
+    background-color: #333;         
+  }
 
-    .btn-success {
-      background-color: white;
-      border: 4px solid green;
-      color: green;
-      outline: none;
-      padding: 24px 80px 24px 80px;
-      border-radius: 8px;
-      font-size: 80px;
-      margin-right: 20px;
-      cursor: pointer;
+  .btn-back:active, .btn-restart:active {
+    background-color: #555;          
+    transform: scale(0.98);         
+  }
+
+ 
+  @media (max-width: 600px) {
+    .btn-back, .btn-restart {
+      font-size: 16px;
+      padding: 10px 24px;
+      height: 50px;
+      max-width: 120px;
     }
 
-    .btn-success:disabled {
-      color: gray;
-      border: 4px solid gray;
-      cursor: not-allowed;
-    }
-
-    .btn-error {
-      background-color: white;
-      border: 4px solid red;
-      color: red;
-      outline: none;
-      padding: 24px 80px 24px 80px;
-      border-radius: 8px;
-      font-size: 80px;
-      cursor: pointer;
-    }
-
-    .btn-error:disabled {
-      color: gray;
-      border: 4px solid gray;
-      cursor: not-allowed;
+    .btn-restart {
+      font-size: 16px;
+      padding: 10px 24px;
+      height: 50px;
     }
   }
 }
+
