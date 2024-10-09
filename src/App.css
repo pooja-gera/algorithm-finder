@@ -24,7 +24,7 @@
       color: white;
     position: relative;
     }
-    
+
     .user-info {
       position: absolute;
       top: 20px;
@@ -33,19 +33,19 @@
       align-items: center;
       cursor: pointer;
     }
-    
+
     .user-info img {
       width: 50px;
       height: 50px;
       border-radius: 50%;
       margin-right: 10px;
     }
-    
+
     .user-info span {
       font-size: 1.2rem;
       color: white;
     }
-    
+
     .dropdown-menu {
       position: absolute;
       top: 60px;
@@ -58,7 +58,7 @@
       transition: opacity 0.3s ease, visibility 0.3s ease;
       opacity: 1;
     }
-    
+
     .dropdown-menu button {
       background-color: #ff4d4f;
       color: white;
@@ -70,11 +70,11 @@
       text-align: left;
       /* Aligns the text inside the button */
     }
-    
+
     .dropdown-menu button:hover {
       background-color: #ff7875;
     }
-    
+
     .dropdown-menu::before {
       content: '';
       position: absolute;
@@ -84,7 +84,7 @@
       border-style: solid;
       border-color: transparent transparent #444 transparent;
     }
-    
+
     .App-footer {
       position: fixed;
       bottom: 0;
@@ -93,17 +93,19 @@
       color: white;
       text-align: center;
       padding: 10px 0;
+  background-color: #ffffff;
+
 }
 
 .App-link {
-    color: #61dafb;
+  color: #000000;
 }
 
 @keyframes App-logo-spin {
     from {
         transform: rotate(0deg);
       }
-    
+
             to {
               transform: rotate(360deg);
             }

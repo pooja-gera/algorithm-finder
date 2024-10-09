@@ -66,7 +66,7 @@ class BinaryTree {
 }
 
 const algorithmFinder = new BinaryTree();
-const algorithmFinderRoot = algorithmFinder.createRoot("Is it a Graph?");
+algorithmFinder.createRoot("Is it a Graph?");
 
 algorithmFinder.addNode("Is it a Graph?", "Is it a Tree?", true);
 algorithmFinder.addNode(
@@ -309,7 +309,5 @@ algorithmFinder.addNode(
   "Two Pointers",
   false
 );
-
-// algorithmFinder.printTree(algorithmFinderRoot);
 
 export default algorithmFinder;

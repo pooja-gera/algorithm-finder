@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from 'react';
 import UserInputButtons from "./components/UserInputButtons";
+import HomePage from "./components/HomePage"
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
 import VisitorCounter from './VisitorCounter';
@@ -90,7 +91,7 @@ function App() {
             </div>
           )}
         </div>
-        <UserInputButtons />
+        <HomePage />
       </header>
       <footer className="App-footer">
         <h1>Visitor Count</h1>
