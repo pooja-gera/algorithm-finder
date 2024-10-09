@@ -17,7 +17,7 @@ If you're unsure about something, ask questions within the issue thread. Collabo
 3. Create a `.env` file in the root directory of the project with the following variables:
    `REACT_APP_GOOGLE_CLIENT_ID=<your-google-oauth-client-id>`, `HOST=localhost`, and `MONGODB_URI=<your-mongodb-connection-string>`. Replace `<your-google-oauth-client-id>` with the `Client ID` you copied earlier. For the `MONGODB_URI`, use the connection string from [MongoDB Atlas](https://www.mongodb.com/products/platform/atlas-database) (it's free 🚀). If you're running MongoDB locally, use something like `MONGODB_URI=mongodb://localhost:27017/visitorCountDB`. Moreover, you need to specify where your localhost is running (e.g., `LOCAL_HOST_URI='http://localhost:3001'`)
    **This .env ensures private information is stored securely.**
-4. To run the application, execute `npm start` within the `algorithm-finder/src` directory. To run the MongoDB server, do `node visitors-utility.js` within algorithm-finder/src.
+4. Run the MongoDB server, do `node visitors-utility.js` within algorithm-finder/src. To run the application, execute `npm start` within the `algorithm-finder/src` directory. 
 
 
 
