@@ -9,10 +9,10 @@ const UserInputButtons = () => {
   );
   const [isSuccessBtnDisabled, setIsSuccessBtnDisabled] = useState(false);
   const [isErrorBtnDisabled, setIsErrorBtnDisabled] = useState(false);
+  const [currentNode, setCurrentNode] = useState(algorithmFinder.getRoot()); 
 
   const handleSuccessBtnClick = () => {
-    const rootNode = algorithmFinder.getRoot();
-    const currentNode = algorithmFinder.getNode(rootNode, currentQuestionText);
+    setCurrentNode(currentNode.yes); 
     setCurrentQuestionText(currentNode.yes.questionString);
 
     if (currentNode.yes.yes === null && currentNode.yes.no === null) {
@@ -22,8 +22,7 @@ const UserInputButtons = () => {
   };
 
   const handleErrorBtnClick = () => {
-    const rootNode = algorithmFinder.getRoot();
-    const currentNode = algorithmFinder.getNode(rootNode, currentQuestionText);
+    setCurrentNode(currentNode.no)
     setCurrentQuestionText(currentNode.no.questionString);
 
     if (currentNode.no.yes === null && currentNode.no.no === null) {
@@ -33,6 +32,7 @@ const UserInputButtons = () => {
   };
 
   const handleRestartBtnClick = () => {
+    setCurrentNode(algorithmFinder.getRoot()); 
     setCurrentQuestionText(algorithmFinder.getRoot().questionString);
     setIsSuccessBtnDisabled(false);
     setIsErrorBtnDisabled(false);
