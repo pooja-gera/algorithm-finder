@@ -1,0 +1,78 @@
+.Login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    background-color: #635994;
+}
+
+.Login {
+    position: relative;
+    color: white;
+}
+
+.google-login-wrapper {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.google-login-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+
+.user-info {
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-info span {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #000;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 1;
+}
+
+.dropdown-menu button {
+    background-color: #635994;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    /* Aligns the text inside the button */
+}
+
+.dropdown-menu button:hover {
+    background-color: #50477b;
+}
+
+.dropdown-menu button:active {
+    background-color: #2e2b48;
+}

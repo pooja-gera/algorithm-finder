@@ -1,6 +1,5 @@
 import "./App.css";
-
-import UserInputButtons from "./components/UserInputButtons";
+import React from 'react';
 import HomePage from "./components/HomePage"
 
 function App() {
