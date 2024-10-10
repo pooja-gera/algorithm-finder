@@ -1,0 +1,39 @@
+.flip-counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-digit {
+    background-color: #00aaff;
+    color: white;
+    font-size: 3rem;
+    width: 50px;
+    height: 80px;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    perspective: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.flip-digit span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 80px;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Animation keyframes for the flip */
+.flip-digit span {
+    transform: rotateX(0deg);
+}
+
+.flip-digit span.flip {
+    transform: rotateX(180deg);
+}
