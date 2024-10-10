@@ -111,7 +111,7 @@ const UserInputButtons = () => {
       </div>
 
       {/* Back button (visible only if there are previous questions) */}
-      {previousQuestions.length > 0 && (
+      {previousQuestions.length > 0 && !(isSuccessBtnDisabled && isErrorBtnDisabled) && (
         <button className="btn-back" onClick={handleBackBtnClick}>
           Back
         </button>
