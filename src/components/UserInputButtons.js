@@ -7,7 +7,7 @@ const UserInputButtons = () => {
   const [currentQuestionText, setCurrentQuestionText] = useState(
     algorithmFinder.getRoot().questionString
   );
-  
+  const [previousQuestions, setPreviousQuestions] = useState([]); // Stack to hold previous questions
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
   const [isSuccessBtnDisabled, setIsSuccessBtnDisabled] = useState(false);
   const [isErrorBtnDisabled, setIsErrorBtnDisabled] = useState(false);
@@ -24,6 +24,14 @@ const UserInputButtons = () => {
   const handleSuccessBtnClick = () => {
     const rootNode = algorithmFinder.getRoot();
     const currentNode = algorithmFinder.getNode(rootNode, currentQuestionText);
+
+
+    setPreviousQuestions((prevQuestions) => [
+      ...prevQuestions,
+      currentQuestionText,
+    ]);
+
+   
     setCurrentQuestionText(currentNode.yes.questionString);
     setIsAccordionOpen(false);
 
@@ -33,15 +41,34 @@ const UserInputButtons = () => {
     }
   };
 
+ 
   const handleErrorBtnClick = () => {
     const rootNode = algorithmFinder.getRoot();
     const currentNode = algorithmFinder.getNode(rootNode, currentQuestionText);
+
+
+    setPreviousQuestions((prevQuestions) => [
+      ...prevQuestions,
+      currentQuestionText,
+    ]);
+
+
     setCurrentQuestionText(currentNode.no.questionString);
-    setIsAccordionOpen(false); 
+    setIsAccordionOpen(false);
 
     if (currentNode.no.yes === null && currentNode.no.no === null) {
       setIsSuccessBtnDisabled(true);
       setIsErrorBtnDisabled(true);
+    }
+  };
+
+  const handleBackBtnClick = () => {
+    if (previousQuestions.length > 0) {
+      const lastQuestion = previousQuestions.pop();
+      setCurrentQuestionText(lastQuestion);
+      setPreviousQuestions([...previousQuestions]); 
+      setIsSuccessBtnDisabled(false);
+      setIsErrorBtnDisabled(false);
     }
   };
 
@@ -50,6 +77,7 @@ const UserInputButtons = () => {
     setIsAccordionOpen(false);
     setIsSuccessBtnDisabled(false);
     setIsErrorBtnDisabled(false);
+    setPreviousQuestions([]);
   };
 
   return (
@@ -82,6 +110,13 @@ const UserInputButtons = () => {
         </button>
       </div>
 
+      {/* Back button (visible only if there are previous questions) */}
+      {previousQuestions.length > 0 && (
+        <button className="btn-back" onClick={handleBackBtnClick}>
+          Back
+        </button>
+      )}
+
       {/* Restart button */}
       {isSuccessBtnDisabled && isErrorBtnDisabled && (
         <button className="btn-restart" onClick={handleRestartBtnClick}>
@@ -93,4 +128,3 @@ const UserInputButtons = () => {
 };
 
 export default UserInputButtons;
-
