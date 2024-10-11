@@ -11,6 +11,7 @@ const UserInputButtons = () => {
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
   const [isSuccessBtnDisabled, setIsSuccessBtnDisabled] = useState(false);
   const [isErrorBtnDisabled, setIsErrorBtnDisabled] = useState(false);
+  const [currentNode, setCurrentNode] = useState(algorithmFinder.getRoot()); 
 
   // Function to print the summary
   const getQuestionSummary = (questionText) => {
@@ -22,8 +23,7 @@ const UserInputButtons = () => {
   };
 
   const handleSuccessBtnClick = () => {
-    const rootNode = algorithmFinder.getRoot();
-    const currentNode = algorithmFinder.getNode(rootNode, currentQuestionText);
+    setCurrentNode(currentNode.yes); 
 
 
     setPreviousQuestions((prevQuestions) => [
@@ -35,16 +35,18 @@ const UserInputButtons = () => {
     setCurrentQuestionText(currentNode.yes.questionString);
     setIsAccordionOpen(false);
 
-    if (currentNode.yes.yes === null && currentNode.yes.no === null) {
-      setIsSuccessBtnDisabled(true);
-      setIsErrorBtnDisabled(true);
+    if (currentNode.yes.yes === null){
+      setIsSuccessBtnDisabled(true); 
+    }
+
+    if (currentNode.yes.no === null){
+      setIsErrorBtnDisabled(true); 
     }
   };
 
  
   const handleErrorBtnClick = () => {
-    const rootNode = algorithmFinder.getRoot();
-    const currentNode = algorithmFinder.getNode(rootNode, currentQuestionText);
+    setCurrentNode(currentNode.no)
 
 
     setPreviousQuestions((prevQuestions) => [
@@ -56,9 +58,13 @@ const UserInputButtons = () => {
     setCurrentQuestionText(currentNode.no.questionString);
     setIsAccordionOpen(false);
 
-    if (currentNode.no.yes === null && currentNode.no.no === null) {
-      setIsSuccessBtnDisabled(true);
-      setIsErrorBtnDisabled(true);
+    if (currentNode.no.yes === null){
+      setIsSuccessBtnDisabled(true); 
+    }
+    
+    if (currentNode.no.no === null){
+      console.log(currentNode.no.questionString)
+      setIsErrorBtnDisabled(true); 
     }
   };
 
@@ -73,6 +79,7 @@ const UserInputButtons = () => {
   };
 
   const handleRestartBtnClick = () => {
+    setCurrentNode(algorithmFinder.getRoot()); 
     setCurrentQuestionText(algorithmFinder.getRoot().questionString);
     setIsAccordionOpen(false);
     setIsSuccessBtnDisabled(false);
