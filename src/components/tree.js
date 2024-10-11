@@ -301,13 +301,13 @@ algorithmFinder.addNode(
 algorithmFinder.addNode(
   "Is O(1) memory required?",
   "Does it involve monotonic condition?",
-  false
+  true
 );
 
 algorithmFinder.addNode(
   "Does it involve monotonic condition?",
   "Two Pointers",
-  false
+  true
 );
 
 // algorithmFinder.printTree(algorithmFinderRoot);
