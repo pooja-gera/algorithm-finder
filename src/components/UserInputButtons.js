@@ -15,9 +15,12 @@ const UserInputButtons = () => {
     setCurrentNode(currentNode.yes); 
     setCurrentQuestionText(currentNode.yes.questionString);
 
-    if (currentNode.yes.yes === null && currentNode.yes.no === null) {
-      setIsSuccessBtnDisabled(true);
-      setIsErrorBtnDisabled(true);
+    if (currentNode.yes.yes === null){
+      setIsSuccessBtnDisabled(true); 
+    }
+
+    if (currentNode.yes.no === null){
+      setIsErrorBtnDisabled(true); 
     }
   };
 
@@ -25,9 +28,13 @@ const UserInputButtons = () => {
     setCurrentNode(currentNode.no)
     setCurrentQuestionText(currentNode.no.questionString);
 
-    if (currentNode.no.yes === null && currentNode.no.no === null) {
-      setIsSuccessBtnDisabled(true);
-      setIsErrorBtnDisabled(true);
+    if (currentNode.no.yes === null){
+      setIsSuccessBtnDisabled(true); 
+    }
+    
+    if (currentNode.no.no === null){
+      console.log(currentNode.no.questionString)
+      setIsErrorBtnDisabled(true); 
     }
   };
 
