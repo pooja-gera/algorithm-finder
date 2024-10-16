@@ -17,11 +17,30 @@
     .question-value {
       margin: 0;
       transition: text-decoration 0.2s ease;
-      font-size: 80px; 
+      font-size: 70px; 
 
       &:hover {
         text-decoration: underline;
       }
+      // changed media queries 
+      @media (min-width: 576px) {
+        font-size: 50px;
+      }
+      @media (min-width: 768px) {
+        font-size: 60px;
+      }
+      @media (min-width: 992px) {
+        font-size: 70px;
+      }
+      // @media (min-width: 1200px) {
+      //   font-size: 80px;
+      // }
+    
+      @media screen and (max-width: 425px) {
+
+        font-size: 40px;
+      }
+    
     }
 
     .accordion-content {
@@ -37,6 +56,11 @@
       .question-summary {
         padding: 8px 0 0 0;
         color: #333;
+        // added font size
+        font-size: x-large;
+        @media (max-width: 600px) {
+          font-size: medium;
+        }
       }
     }
   }
@@ -48,6 +72,9 @@
     gap: 20px;
     margin-top: 20px;
     flex-wrap: wrap;
+    @media (max-width:600px) {
+      flex-direction: column;
+    }
   }
 
   .btn-success, .btn-error {
@@ -62,6 +89,9 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     outline: none;
+    @media (max-width:600px) {
+      width: 70%;
+    }
   }
 
   .btn-success {
@@ -136,9 +166,7 @@
       margin: 20px 20px; 
     }
 
-    .question-value {
-      font-size: 60px; 
-    }
+    
 
     .btn-success, .btn-error {
       padding: 15px 40px; 
@@ -151,10 +179,7 @@
       margin: 15px 10px; 
     }
 
-    .question-value {
-      font-size: 40px; 
-    }
-
+    
     .btn-success, .btn-error {
       padding: 10px 30px; 
       font-size: 24px;
@@ -166,9 +191,7 @@
       margin: 10px 5px; 
     }
 
-    .question-value {
-      font-size: 32px; 
-    }
+    
 
     .btn-success, .btn-error {
       padding: 8px 20px; 

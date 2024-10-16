@@ -110,6 +110,7 @@ const HomePage = () => {
                   className="google-login-button"
                 />
               </div>
+              
             )}
             {isAuthenticated && (
               <div className="user-info" onClick={toggleDropdown}>
